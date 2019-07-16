@@ -199,7 +199,7 @@
           document.querySelector('[data-card-type]').src = supportedCards.mastercard;
           return 'is-mastercard'
         };
-        return 'unknown card type'
+        //return 'unknown card type'
       };
       
       const validateCardExpiryDate = ({target}) => {
@@ -312,11 +312,10 @@
         appState.bill = itemsInCart.reduce((total, item) => total += (item.price*item.qty), 0);
         
         
-        appState.billFormated = formatAsMoney(appState.bill, appState.country)
+        appState.billFormatted = formatAsMoney(appState.bill, appState.country)
         
         
-        let dataBillSelect = document.querySelector('[data-bill]')
-        dataBillSelect.textContent = appState.billFormated;
+        document.querySelector('[data-bill]').textContent = appState.billFormatted;
         
         uiCanInteract();
       }
